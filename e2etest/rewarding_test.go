@@ -139,8 +139,6 @@ func TestBlockReward(t *testing.T) {
 }
 
 func TestBlockEpochReward(t *testing.T) {
-	// TODO: fix the test
-	t.Skip()
 
 	dbFilePaths := make([]string, 0)
 
@@ -583,6 +581,7 @@ func newConfig(
 	cfg.Chain.CompressBlock = true
 	cfg.Chain.ProducerPrivKey = producerPriKey.HexString()
 	cfg.Chain.EnableAsyncIndexWrite = false
+	cfg.Plugins[config.GatewayPlugin] = true
 
 	cfg.ActPool.MinGasPriceStr = big.NewInt(0).String()
 
